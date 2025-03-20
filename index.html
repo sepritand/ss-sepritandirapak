@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scientific Number Accepter</title>
+
+  <!-- Link Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.cdnfonts.com/css/kollektif" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/geomanist" rel="stylesheet">
+
+  <style>
+    /* Reset dan Styling Global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Geomanist', sans-serif;
+      background: linear-gradient(135deg, #1a001a, #660066);
+      color: #ff69b4; /* Pink */
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+    .navbar a {
+      color: #ff69b4;
+      margin: 0 25px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Kollektif', sans-serif;
+      transition: color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    .navbar a:hover {
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+    /* Konten Utama */
+    .content {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+    .section {
+      display: none;
+      width: 80%;
+      max-width: 600px;
+    }
+    .section.active {
+      display: block;
+    }
+    h2 {
+      font-family: 'Kollektif', sans-serif;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      margin: 15px 0;
+    }
+    input[type="text"] {
+      width: 100%;
+      max-width: 400px;
+      padding: 12px;
+      font-size: 18px;
+      border: 2px solid #ff69b4;
+      border-radius: 5px;
+      background: transparent;
+      color: #ff69b4;
+      text-align: center;
+    }
+    button {
+      margin-top: 15px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff69b4;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff33cc;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a onclick="showSection('file')">File</a>
+    <a onclick="showSection('edit')">Edit</a>
+    <a onclick="showSection('run')">Run</a>
+    <a onclick="showSection('about')">About Us</a>
+  </div>
+  
+  <!-- Konten Utama -->
+  <div class="content">
+    <div id="file" class="section">
+      <h2>File</h2>
+      <p>Konten fitur file dapat ditambahkan di sini.</p>
+    </div>
+    <div id="edit" class="section">
+      <h2>Edit</h2>
+      <p>Konten fitur edit dapat ditambahkan di sini.</p>
+    </div>
+    <div id="run" class="section active">
+      <h2>Run</h2>
+      <p>Masukkan bilangan (format desimal atau notasi ilmiah):</p>
+      <input type="text" id="numberInput" placeholder="Masukkan bilangan">
+      <br>
+      <button onclick="validateNumber()">Run</button>
+      <p id="result"></p>
+    </div>
+    <div id="about" class="section">
+      <h2>About Us</h2>
+      <p>Nama   : Aerangga Hizkia Putra Suhendro b</p>
+      <p>NIM    : 231011060067</p>
+      <p>Kelas  : Teori Bahasa dan Otomata</p>
+      <p>Prodi  : Sistem Informasi</p>
+    </div>
+  </div>
+</body>
+</html>
